@@ -1,5 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+  <style>
+  :root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --text: #1f2933;
+    --muted: #5f6b7a;
+    --accent: #123c69;
+    --accent-soft: #e8eef6;
+    --border: #d9e2ec;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .site-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .nav {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #ffffff 0%, #edf3f9 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 72px 24px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: 46px;
+    line-height: 1.12;
+    margin: 0 0 14px;
+    color: #102a43;
+  }
+
+  .subtitle {
+    font-size: 21px;
+    color: var(--muted);
+    margin: 0 0 24px;
+  }
+
+  .hero-text {
+    font-size: 17px;
+    max-width: 720px;
+    margin-bottom: 28px;
+  }
+
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  .button.secondary {
+    background: transparent;
+    color: var(--accent);
+  }
+
+  .portrait-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow: 0 18px 45px rgba(16, 42, 67, 0.10);
+  }
+
+  .portrait-card img {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+  }
+
+  .portrait-caption {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 24px 72px;
+  }
+
+  section {
+    margin-bottom: 42px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    color: #102a43;
+    margin-bottom: 14px;
+  }
+
+  .section-kicker {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .mini-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+  }
+
+  .mini-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #102a43;
+    font-size: 19px;
+  }
+
+  .mini-card p {
+    margin-bottom: 0;
+    color: var(--muted);
+  }
+
+  .profile-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .profile-link {
+    display: block;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--border);
+    background: #ffffff;
+    text-align: center;
+    padding: 28px 24px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  @media (max-width: 850px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding-top: 48px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .grid,
+    .profile-list {
+      grid-template-columns: 1fr;
+    }
+
+    .nav {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+    }
+  }
+</style>
 <head>
   <meta charset="UTF-8" />
 
@@ -60,48 +316,182 @@
 </head>
 
 <body>
-  <h1>Umeet Bhachu, P.Eng., PMP, CMRP</h1>
-  <h2>Rotating Equipment Engineer & Turbomachinery Specialist</h2>
-<img src="umeet-bhachu.jpg" alt="Umeet Bhachu, P.Eng., PMP, CMRP - Rotating Equipment Engineer" style="width:180px; border-radius:50%; margin:15px 0;" />
-  <p>
-    Umeet Bhachu is a professional Rotating Equipment Engineer with over 20 years of experience
-    in oil &amp; gas, LNG, and energy infrastructure. His expertise includes pumps, compressors,
-    gas turbines, mechanical seals, lubrication systems, and reliability engineering.
-  </p>
+<body>
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">Umeet Bhachu, P.Eng.</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#publications">Publications</a>
+        <a href="#profiles">Profiles</a>
+      </nav>
+    </div>
+  </header>
 
-  <p>
-    He has authored technical articles in recognized industry publications such as
-    <em>Hydrocarbon Engineering</em> and <em>LNG Industry</em>, and his publications are indexed
-    on Google Scholar.
-  </p>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Rotating Equipment · Turbomachinery · Reliability Engineering</div>
+        <h1>Umeet Bhachu, P.Eng., PMP, CMRP</h1>
+        <p class="subtitle">Staff Rotating Equipment Engineer and Turbomachinery Specialist</p>
 
-  <p>
-    His current interests include nonlinear causality analysis, transfer entropy, machine
-    learning, and advanced analytics applied to rotating equipment condition monitoring and
-    asset performance optimization.
-  </p>
+        <p class="hero-text">
+          Professional rotating equipment engineer with over 20 years of experience across oil and gas,
+          LNG, midstream energy infrastructure, turbomachinery, reliability engineering, and advanced
+          analytics applied to critical rotating equipment.
+        </p>
 
-  <h3>Profiles &amp; Publications</h3>
-  <ul>
-    <li><a rel="me" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a></li>
-    <li><a rel="me" href="https://orcid.org/0009-0008-2717-850X">ORCID</a></li>
-    <li><a rel="me" href="https://github.com/umeetbhachu">GitHub</a></li>
-    <li><a rel="me" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn</a></li>
+        <div class="button-row">
+          <a class="button" href="#publications">View Publications</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn Profile</a>
+          <a class="button secondary" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a>
+        </div>
+      </div>
 
-    <li>
-      Industry publication:
-      <a href="https://www.lngindustry.com/magazine/hydrocarbon-engineering/october-2025/">
-        Hydrocarbon Engineering – LNG Industry (Oct 2025)
-      </a>
-    </li>
+      <aside class="portrait-card">
+        <img src="umeet-bhachu.jpg" alt="Umeet Bhachu, P.Eng., PMP, CMRP - Rotating Equipment Engineer">
+        <div class="portrait-caption">
+          Rotating Equipment Engineer · Turbomachinery · Reliability · AI/ML Analytics
+        </div>
+      </aside>
+    </div>
+  </section>
 
-    <li>
-      Book chapter (accepted / forthcoming) – <em>Servitization &amp; Asset Management</em>:
-      <a href="https://www.amazon.ca/Servitization-Physical-Management-Michael-Provost/dp/0768094860">
-        Amazon book page
-      </a>
-    </li>
-  </ul>
+  <main>
+    <section id="about">
+      <div class="section-kicker">About Me</div>
+      <h2 class="section-title">Behind the Papers</h2>
+
+      <div class="card">
+        <p>
+          Umeet Bhachu is a Professional Engineer registered in the Province of Alberta, specializing in
+          rotating equipment, turbomachinery, machinery reliability, and asset performance. His work
+          focuses on practical engineering leadership for pumps, compressors, gas turbines, mechanical
+          seals, lubrication systems, condition monitoring, and reliability improvement across operating
+          energy assets.
+        </p>
+
+        <p>
+          He currently serves as a Staff Rotating Equipment Engineer with Pembina Pipeline Corporation,
+          providing technical leadership, engineering oversight, and reliability support for critical rotating
+          equipment across major pipeline and midstream assets.
+        </p>
+
+        <p>
+          Prior to Pembina, he worked with Canadian Natural Resources Limited in a corporate technical
+          authority role for turbomachinery and rotating equipment reliability. His experience includes
+          technical standards, troubleshooting, engineering governance, project support, commissioning,
+          and complex machinery problem solving across major industrial assets.
+        </p>
+
+        <p>
+          In addition to traditional rotating equipment engineering, Umeet has developed advanced
+          capabilities in data analytics, machine learning, and artificial intelligence, with an interest in
+          applying these tools to machinery diagnostics, condition monitoring, performance optimization,
+          and reliability decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="section-kicker">Technical Focus</div>
+      <h2 class="section-title">Engineering Expertise</h2>
+
+      <div class="grid">
+        <div class="mini-card">
+          <h3>Rotating Equipment</h3>
+          <p>
+            Pumps, compressors, gas turbines, steam turbines, mechanical seals, bearings, lubrication
+            systems, and auxiliary equipment.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Reliability & Asset Performance</h3>
+          <p>
+            RCA, RCM, condition monitoring, failure analysis, maintenance strategy, sparing strategy,
+            and equipment lifecycle improvement.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Analytics & AI</h3>
+          <p>
+            Machine learning, time-series analysis, advanced diagnostics, and data-driven tools for
+            rotating equipment troubleshooting and optimization.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-kicker">Credentials</div>
+      <h2 class="section-title">Education & Professional Certifications</h2>
+
+      <div class="card">
+        <p>
+          Umeet holds a Bachelor of Science in Chemical Engineering from the University of British Columbia
+          and a Diploma in Mechanical Engineering from the British Columbia Institute of Technology.
+        </p>
+
+        <p>
+          His professional credentials include P.Eng., PMP, CMRP, and ISO Category II Vibration Analysis,
+          combining engineering registration, project management, reliability, and machinery condition
+          monitoring capabilities.
+        </p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-kicker">Publications</div>
+      <h2 class="section-title">Technical Publications & Industry Contributions</h2>
+
+      <div class="card">
+        <p>
+          Umeet has authored and contributed to technical publications focused on rotating equipment,
+          reliability engineering, machine learning, and industrial asset performance.
+        </p>
+
+        <div class="profile-list">
+          <a class="profile-link" href="https://www.lngindustry.com/magazine/hydrocarbon-engineering/october-2025/">
+            Hydrocarbon Engineering / LNG Industry — October 2025
+          </a>
+
+          <a class="profile-link" href="https://www.amazon.ca/Servitization-Physical-Management-Michael-Provost/dp/0768094860">
+            Book Chapter — Servitization & Asset Management
+          </a>
+
+          <a class="profile-link" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">
+            Google Scholar Profile
+          </a>
+
+          <a class="profile-link" href="https://orcid.org/0009-0008-2717-850X">
+            ORCID Research Profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="profiles">
+      <div class="section-kicker">Official Profiles</div>
+      <h2 class="section-title">Professional Links</h2>
+
+      <div class="card">
+        <div class="profile-list">
+          <a class="profile-link" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a>
+          <a class="profile-link" href="https://orcid.org/0009-0008-2717-850X">ORCID</a>
+          <a class="profile-link" href="https://github.com/umeetbhachu">GitHub</a>
+          <a class="profile-link" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2026 Umeet Bhachu, P.Eng., PMP, CMRP · Rotating Equipment Engineer · Turbomachinery Specialist
+  </footer>
+</body>
 </body>
 </html>
 
