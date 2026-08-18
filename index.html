@@ -68,40 +68,725 @@
   </script>
 
   <style>
-    :root { --bg:#f4f6f8; --card:#ffffff; --text:#1f2933; --muted:#5f6b7a; --accent:#123c69; --accent-soft:#e8eef6; --border:#d9e2ec; --shadow:rgba(16,42,67,.08); }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65} a{color:var(--accent);text-decoration:none;font-weight:600} a:hover{text-decoration:underline}.site-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}.nav{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:24px}.brand{font-size:18px;font-weight:700;color:var(--accent);letter-spacing:.2px}.nav-links{display:flex;gap:20px;font-size:14px}.hero{background:linear-gradient(135deg,#fff 0%,#edf3f9 100%);border-bottom:1px solid var(--border)}.hero-inner{max-width:1120px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.6px;font-size:13px;margin-bottom:14px}h1{font-size:46px;line-height:1.12;margin:0 0 14px;color:#102a43}.subtitle{font-size:21px;color:var(--muted);margin:0 0 24px}.hero-text{font-size:17px;max-width:720px;margin-bottom:28px}.button-row{display:flex;flex-wrap:wrap;gap:12px}.button{display:inline-block;padding:11px 18px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:#fff;font-size:14px}.button:hover{text-decoration:none;opacity:.92}.button.secondary{background:transparent;color:var(--accent)}.portrait-card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:18px;box-shadow:0 18px 45px rgba(16,42,67,.10)}.portrait-card img{width:100%;display:block;border-radius:18px}.portrait-caption{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}main{max-width:1120px;margin:0 auto;padding:48px 24px 72px}section{margin-bottom:48px;scroll-margin-top:84px}.section-title{font-size:28px;color:#102a43;margin:0 0 18px}.section-kicker{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1.4px;font-size:13px;margin-bottom:8px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(16,42,67,.06)}.card p:first-child{margin-top:0}.card p:last-child{margin-bottom:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.mini-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 8px 22px rgba(16,42,67,.045)}.mini-card h3{margin-top:0;margin-bottom:10px;color:#102a43;font-size:19px;line-height:1.35}.mini-card p{margin-bottom:0;color:var(--muted)}.publication-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}.publication-card{display:block;background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 22px rgba(16,42,67,.05);transition:transform .15s ease,box-shadow .15s ease}.publication-card:hover{text-decoration:none;transform:translateY(-2px);box-shadow:0 14px 32px rgba(16,42,67,.09)}.publication-year{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:4px 10px;margin-bottom:10px}.publication-card h3{margin:0 0 8px;color:#102a43;font-size:17px;line-height:1.35}.publication-source{margin:0 0 8px;color:var(--muted);font-size:14px;font-weight:600}.publication-note{margin:0;color:var(--muted);font-size:14px;line-height:1.55}.profile-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.profile-link{display:block;background:var(--accent-soft);border:1px solid var(--border);padding:14px 16px;border-radius:14px}.profile-link:hover{text-decoration:none;background:#dde8f4}.footer{border-top:1px solid var(--border);background:#fff;text-align:center;padding:28px 24px;color:var(--muted);font-size:14px}@media(max-width:850px){.hero-inner{grid-template-columns:1fr;padding-top:48px}h1{font-size:36px}.grid,.publication-grid,.profile-list{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.nav-links{flex-wrap:wrap}}
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --accent: #123c69;
+      --accent-soft: #e8eef6;
+      --border: #d9e2ec;
+      --shadow: rgba(16, 42, 67, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #edf3f9 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 72px 24px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.12;
+      margin: 0 0 14px;
+      color: #102a43;
+    }
+
+    .subtitle {
+      font-size: 21px;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .hero-text {
+      font-size: 17px;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      opacity: 0.92;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .portrait-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(16, 42, 67, 0.10);
+    }
+
+    .portrait-card img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    .portrait-caption {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    section {
+      margin-bottom: 48px;
+      scroll-margin-top: 84px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: #102a43;
+      margin: 0 0 18px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06);
+    }
+
+    .card p:first-child {
+      margin-top: 0;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mini-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 22px rgba(16, 42, 67, 0.045);
+    }
+
+    .mini-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #102a43;
+      font-size: 19px;
+      line-height: 1.35;
+    }
+
+    .mini-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .publication-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .publication-card {
+      display: block;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 22px rgba(16, 42, 67, 0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .publication-card:hover {
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(16, 42, 67, 0.09);
+    }
+
+    .publication-year {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+    }
+
+    .publication-card h3 {
+      margin: 0 0 8px;
+      color: #102a43;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .publication-source {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .publication-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .profile-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .profile-link {
+      display: block;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      border-radius: 14px;
+    }
+
+    .profile-link:hover {
+      text-decoration: none;
+      background: #dde8f4;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      text-align: center;
+      padding: 28px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .grid,
+      .publication-grid,
+      .profile-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <header class="site-header"><div class="nav"><div class="brand">Umeet Bhachu, P.Eng.</div><nav class="nav-links" aria-label="Main navigation"><a href="#about">About</a><a href="#impact">Impact</a><a href="#expertise">Expertise</a><a href="#publications">Publications</a><a href="#profiles">Profiles</a></nav></div></header>
-  <section class="hero"><div class="hero-inner"><div><div class="eyebrow">Rotating Equipment · Turbomachinery · Reliability Engineering</div><h1>Umeet Bhachu, P.Eng., PMP, CMRP</h1><p class="subtitle">Staff Rotating Equipment Engineer and Turbomachinery Specialist</p><p class="hero-text">Professional rotating equipment engineer with over 20 years of experience across oil and gas, LNG, midstream energy infrastructure, turbomachinery, reliability engineering, and advanced analytics applied to critical rotating equipment.</p><div class="button-row"><a class="button" href="#publications">View Publications</a><a class="button secondary" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn Profile</a><a class="button secondary" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a></div></div><aside class="portrait-card"><img src="umeet-bhachu.jpg" alt="Umeet Bhachu, P.Eng., PMP, CMRP - Rotating Equipment Engineer"><div class="portrait-caption">Rotating Equipment Engineer · Turbomachinery · Reliability · AI/ML Analytics</div></aside></div></section>
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">Umeet Bhachu, P.Eng.</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#publications">Publications</a>
+        <a href="ubhra.html">Engineering Software</a>
+        <a href="#profiles">Profiles</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Rotating Equipment · Turbomachinery · Reliability Engineering</div>
+        <h1>Umeet Bhachu, P.Eng., PMP, CMRP</h1>
+        <p class="subtitle">Staff Rotating Equipment Engineer and Turbomachinery Specialist</p>
+
+        <p class="hero-text">
+          Professional rotating equipment engineer with over 20 years of experience across oil and gas,
+          LNG, midstream energy infrastructure, turbomachinery, reliability engineering, and advanced
+          analytics applied to critical rotating equipment.
+        </p>
+
+        <div class="button-row">
+          <a class="button" href="#publications">View Publications</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn Profile</a>
+          <a class="button secondary" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a>
+        </div>
+      </div>
+
+      <aside class="portrait-card">
+        <img src="umeet-bhachu.jpg" alt="Umeet Bhachu, P.Eng., PMP, CMRP - Rotating Equipment Engineer">
+        <div class="portrait-caption">
+          Rotating Equipment Engineer · Turbomachinery · Reliability · AI/ML Analytics
+        </div>
+      </aside>
+    </div>
+  </section>
+
   <main>
-    <section id="about"><div class="section-kicker">About Me</div><h2 class="section-title">Behind the Papers</h2><div class="card"><p>Umeet Bhachu is a Professional Engineer registered in the Province of Alberta, specializing in rotating equipment, turbomachinery, machinery reliability, and asset performance. His work focuses on practical engineering leadership for pumps, compressors, gas turbines, mechanical seals, lubrication systems, condition monitoring, and reliability improvement across operating energy assets.</p><p>He currently serves as a Staff Rotating Equipment Engineer with Pembina Pipeline Corporation, providing technical leadership, engineering oversight, and reliability support for critical rotating equipment across major pipeline and midstream assets.</p><p>Prior to Pembina, he worked with Canadian Natural Resources Limited in a corporate technical authority role for turbomachinery and rotating equipment reliability. His experience includes technical standards, troubleshooting, engineering governance, project support, commissioning, and complex machinery problem solving across major industrial assets.</p><p>In addition to traditional rotating equipment engineering, Umeet has developed advanced capabilities in data analytics, machine learning, and artificial intelligence, with an interest in applying these tools to machinery diagnostics, condition monitoring, performance optimization, and reliability decision-making.</p></div></section>
-    <section id="impact"><div class="section-kicker">Engineering Impact</div><h2 class="section-title">Selected Professional Contributions</h2><div class="grid"><div class="mini-card"><h3>Rotating Equipment Leadership</h3><p>Provides technical leadership for critical rotating equipment including pumps, compressors, gas turbines, mechanical seals, bearings, lubrication systems, and auxiliary machinery.</p></div><div class="mini-card"><h3>Reliability Improvement</h3><p>Supports asset reliability through troubleshooting, RCA, condition monitoring, maintenance strategy, technical standards, and lifecycle reliability improvement.</p></div><div class="mini-card"><h3>Mechanical Seal Strategy</h3><p>Developed corporate-level mechanical seal reliability practices focused on API 682 support systems, seal plan selection, instrumentation, emissions control, and practical field reliability.</p></div><div class="mini-card"><h3>Advanced Analytics & AI</h3><p>Applies machine learning, time-series analysis, and data-driven diagnostics to rotating equipment performance, troubleshooting, emissions optimization, and reliability decision-making.</p></div><div class="mini-card"><h3>Technical Publications</h3><p>Publishes and contributes to industry-facing technical work on rotating equipment, reliability engineering, asset performance, and machine-learning applications.</p></div><div class="mini-card"><h3>Industry Experience</h3><p>Brings over 20 years of engineering experience across oil and gas, LNG, midstream infrastructure, major industrial assets, commissioning, operations support, and technical governance.</p></div></div></section>
-    <section id="expertise"><div class="section-kicker">Technical Focus</div><h2 class="section-title">Engineering Expertise</h2><div class="grid"><div class="mini-card"><h3>Rotating Equipment</h3><p>Pumps, compressors, gas turbines, steam turbines, mechanical seals, bearings, lubrication systems, and auxiliary equipment.</p></div><div class="mini-card"><h3>Reliability & Asset Performance</h3><p>RCA, RCM, condition monitoring, failure analysis, maintenance strategy, sparing strategy, and equipment lifecycle improvement.</p></div><div class="mini-card"><h3>Analytics & AI</h3><p>Machine learning, time-series analysis, advanced diagnostics, and data-driven tools for rotating equipment troubleshooting and optimization.</p></div></div></section>
-    <section id="credentials"><div class="section-kicker">Credentials</div><h2 class="section-title">Education & Professional Certifications</h2><div class="card"><p>Umeet holds a Bachelor of Science in Chemical Engineering from the University of British Columbia and a Diploma in Mechanical Engineering from the British Columbia Institute of Technology.</p><p>His professional credentials include P.Eng., PMP, CMRP, and ISO Category II Vibration Analysis, combining engineering registration, project management, reliability, and machinery condition monitoring capabilities.</p></div></section>
-    <section id="publications"><div class="section-kicker">Publications</div><h2 class="section-title">Technical Publications & Industry Contributions</h2><div class="card"><p>Selected technical publications, interviews, conference papers, and industry contributions focused on rotating equipment, turbomachinery, reliability engineering, machinery performance, mechanical seals, data analytics, and machine-learning applications in industrial assets.</p><div class="publication-grid">
-      <a class="publication-card" href="https://circle.ubc.ca/handle/2429/22432"><span class="publication-year">2005</span><h3>BioDiesel — Production Through Transesterification Reaction</h3><p class="publication-source">University of British Columbia</p><p class="publication-note">Academic engineering publication related to biodiesel production and transesterification reaction processes.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_ba94d8dd91d6436986a67dabc9c12c47.pdf"><span class="publication-year">2009</span><h3>Reliability Centered Maintenance</h3><p class="publication-source">Uptime Magazine</p><p class="publication-note">Practical reliability-centered maintenance discussion focused on plant reliability and maintenance strategy.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_6887e57c88134ba4be4815eedb225696.pdf"><span class="publication-year">2012</span><h3>Improve Performance Monitoring of Your Turbo-Machinery</h3><p class="publication-source">Hydrocarbon Processing</p><p class="publication-note">Turbomachinery performance monitoring article focused on steam turbine efficiency, plant data, and performance indicators.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_3f3d48fd5d214933955d2f541dd99095.pdf"><span class="publication-year">2013 / 2014</span><h3>Laplace Test as a Pre-Qualification for Weibull — Mechanical Seal Analysis</h3><p class="publication-source">Uptime Magazine</p><p class="publication-note">Mechanical seal reliability article applying statistical methods to evaluate failure trends and reliability behavior.</p></a>
-      <a class="publication-card" href="https://www.plantservices.com/equipment/fluid-handling/article/11313026/real-time-machinery-evaluation-leads-to-plant-profitability"><span class="publication-year">2014</span><h3>Real-Time Machinery Evaluation Leads to Plant Profitability</h3><p class="publication-source">Plant Services Journal</p><p class="publication-note">Rotating machinery evaluation article focused on practical machinery performance assessment and plant profitability.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_87108e99072f47ddab5c076a62ff74a5.pdf"><span class="publication-year">2014</span><h3>Raise Plant Profitability Through Continuous Performance Evaluation</h3><p class="publication-source">Hydrocarbon Processing</p><p class="publication-note">Article on continuous machinery and process performance evaluation to support reliability and profitability.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_bac32928cc8e41ecb0ceee5c0f899512.pdf"><span class="publication-year">2016</span><h3>Viscosity Effects on Centrifugal Pump Performance</h3><p class="publication-source">Uptime Magazine</p><p class="publication-note">Pump performance article discussing the effect of viscosity on centrifugal pump operation and reliability.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_5e437c951f1242ab9a72bbdfac765448.pdf"><span class="publication-year">2017</span><h3>API Plan 53B: What Can Plant Operators Do to Help?</h3><p class="publication-source">Uptime Magazine</p><p class="publication-note">Mechanical seal support system article focused on API Plan 53B operation, maintenance, and plant reliability practices.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_7f5c5deb74b44b72bf6c1ea820151bdb.pdf"><span class="publication-year">2018</span><h3>Utilizing Process Dynamics to Increase Machine Reliability</h3><p class="publication-source">Uptime Magazine</p><p class="publication-note">Reliability article connecting process conditions, operating dynamics, and rotating equipment performance.</p></a>
-      <a class="publication-card" href="https://vdn.woodplc.com/knowledge-center/technical-articles/case-study-of-solutions-to-screw-compressor-package-vibrations"><span class="publication-year">2019</span><h3>Case Study of Solutions to Screw Compressor Package Vibrations</h3><p class="publication-source">Gas Machinery Conference / Wood VDN</p><p class="publication-note">Conference work focused on screw compressor package vibration troubleshooting and practical machinery problem solving.</p></a>
-      <a class="publication-card" href="https://reliabilityweb.com/data-analytics-machine-learning-and-root-cause-analysis-a-practical-path-to-continuous-improvement"><span class="publication-year">2023</span><h3>Data Analytics, Machine Learning and Root Cause Analysis</h3><p class="publication-source">Reliabilityweb / Uptime Magazine</p><p class="publication-note">Article on applying data analytics and machine learning to root cause analysis, continuous improvement, and plant reliability.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_9adca796af4c4f2b865555e51837f950.pdf"><span class="publication-year">2023</span><h3>Improving Pump Systems — Interview with Umeet Bhachu</h3><p class="publication-source">Pump Engineer Magazine</p><p class="publication-note">Industry interview on pump selection, API 610 expectations, preservation, installation, automation, and reliability.</p></a>
-      <a class="publication-card" href="https://oaktrust.library.tamu.edu/items/5ab86bca-5b0b-4343-b9eb-f3792acda782"><span class="publication-year">2023</span><h3>Natural Gas Condensate Transfer Pump Mechanical Seal MTBR Improvement</h3><p class="publication-source">Turbomachinery Symposium / Texas A&amp;M OakTrust</p><p class="publication-note">Technical paper on condensate pump mechanical seal mean time between repair improvement through design and material enhancements.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_887aa6cf61194effb4ca52aa07f55d1e.pdf"><span class="publication-year">2025</span><h3>IBM AI Credential</h3><p class="publication-source">IBM Artificial Intelligence / Machine Learning Credential</p><p class="publication-note">Credential supporting applied artificial intelligence, machine learning, and analytics capability.</p></a>
-      <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_d8df0aa2e8b74fdb96bc4e4fca60a471.pdf"><span class="publication-year">2025</span><h3>AI and Machine Learning — Practical Applications</h3><p class="publication-source">Baker Hughes Cordant Conference, Calgary</p><p class="publication-note">Industry presentation focused on artificial intelligence, machine learning, and practical applications in reliability and operations.</p></a>
-      <a class="publication-card" href="https://www.hydrocarbonengineering.com/magazine/hydrocarbon-engineering/back-issues/"><span class="publication-year">2025</span><h3>AI: Smarter Operations for Reliability and Performance</h3><p class="publication-source">Hydrocarbon Engineering, October 2025</p><p class="publication-note">Industry article focused on AI, smarter operations, reliability, performance, and industrial asset optimization.</p></a>
-      <a class="publication-card" href="https://reliabilityweb.com/mechanical-seals-small-components-major-consequences-for-pump-reliability-and-process-safety"><span class="publication-year">2026</span><h3>Mechanical Seals: Small Components, Major Consequences for Pump Reliability and Process Safety</h3><p class="publication-source">Reliabilityweb</p><p class="publication-note">Article focused on mechanical seal reliability, pump performance, process safety, and the operational consequences of seal failures.</p></a>
-      <a class="publication-card" href="https://www.amazon.ca/Servitization-Physical-Management-Michael-Provost/dp/0768094860"><span class="publication-year">Book Chapter</span><h3>Accepted Chapter Contribution — Servitization &amp; Asset Management</h3><p class="publication-source">Book Chapter Contribution</p><p class="publication-note">Book chapter contribution related to physical asset management and servitization.</p></a>
-    </div></div></section>
-    <section id="profiles"><div class="section-kicker">Official Profiles</div><h2 class="section-title">Professional Links</h2><div class="card"><div class="profile-list"><a class="profile-link" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a><a class="profile-link" href="https://orcid.org/0009-0008-2717-850X">ORCID</a><a class="profile-link" href="https://github.com/umeetbhachu">GitHub</a><a class="profile-link" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn</a></div></div></section>
+    <section id="about">
+      <div class="section-kicker">About Me</div>
+      <h2 class="section-title">Behind the Papers</h2>
+
+      <div class="card">
+        <p>
+          Umeet Bhachu is a Professional Engineer registered in the Province of Alberta, specializing in
+          rotating equipment, turbomachinery, machinery reliability, and asset performance. His work
+          focuses on practical engineering leadership for pumps, compressors, gas turbines, mechanical
+          seals, lubrication systems, condition monitoring, and reliability improvement across operating
+          energy assets.
+        </p>
+
+        <p>
+          He currently serves as a Staff Rotating Equipment Engineer with Pembina Pipeline Corporation,
+          providing technical leadership, engineering oversight, and reliability support for critical rotating
+          equipment across major pipeline and midstream assets.
+        </p>
+
+        <p>
+          Prior to Pembina, he worked with Canadian Natural Resources Limited in a corporate technical
+          authority role for turbomachinery and rotating equipment reliability. His experience includes
+          technical standards, troubleshooting, engineering governance, project support, commissioning,
+          and complex machinery problem solving across major industrial assets.
+        </p>
+
+        <p>
+          In addition to traditional rotating equipment engineering, Umeet has developed advanced
+          capabilities in data analytics, machine learning, and artificial intelligence, with an interest in
+          applying these tools to machinery diagnostics, condition monitoring, performance optimization,
+          and reliability decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="section-kicker">Engineering Impact</div>
+      <h2 class="section-title">Selected Professional Contributions</h2>
+
+      <div class="grid">
+        <div class="mini-card">
+          <h3>Rotating Equipment Leadership</h3>
+          <p>
+            Provides technical leadership for critical rotating equipment including pumps, compressors,
+            gas turbines, mechanical seals, bearings, lubrication systems, and auxiliary machinery.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Reliability Improvement</h3>
+          <p>
+            Supports asset reliability through troubleshooting, RCA, condition monitoring, maintenance
+            strategy, technical standards, and lifecycle reliability improvement.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Mechanical Seal Strategy</h3>
+          <p>
+            Developed corporate-level mechanical seal reliability practices focused on API 682 support
+            systems, seal plan selection, instrumentation, emissions control, and practical field reliability.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Advanced Analytics & AI</h3>
+          <p>
+            Applies machine learning, time-series analysis, and data-driven diagnostics to rotating
+            equipment performance, troubleshooting, emissions optimization, and reliability decision-making.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Technical Publications</h3>
+          <p>
+            Publishes and contributes to industry-facing technical work on rotating equipment,
+            reliability engineering, asset performance, and machine-learning applications.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Industry Experience</h3>
+          <p>
+            Brings over 20 years of engineering experience across oil and gas, LNG, midstream
+            infrastructure, major industrial assets, commissioning, operations support, and technical governance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="section-kicker">Technical Focus</div>
+      <h2 class="section-title">Engineering Expertise</h2>
+
+      <div class="grid">
+        <div class="mini-card">
+          <h3>Rotating Equipment</h3>
+          <p>
+            Pumps, compressors, gas turbines, steam turbines, mechanical seals, bearings, lubrication
+            systems, and auxiliary equipment.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Reliability & Asset Performance</h3>
+          <p>
+            RCA, RCM, condition monitoring, failure analysis, maintenance strategy, sparing strategy,
+            and equipment lifecycle improvement.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Analytics & AI</h3>
+          <p>
+            Machine learning, time-series analysis, advanced diagnostics, and data-driven tools for
+            rotating equipment troubleshooting and optimization.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="section-kicker">Credentials</div>
+      <h2 class="section-title">Education & Professional Certifications</h2>
+
+      <div class="card">
+        <p>
+          Umeet holds a Bachelor of Science in Chemical Engineering from the University of British Columbia
+          and a Diploma in Mechanical Engineering from the British Columbia Institute of Technology.
+        </p>
+
+        <p>
+          His professional credentials include P.Eng., PMP, CMRP, and ISO Category II Vibration Analysis,
+          combining engineering registration, project management, reliability, and machinery condition
+          monitoring capabilities.
+        </p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-kicker">Publications</div>
+      <h2 class="section-title">Technical Publications & Industry Contributions</h2>
+
+      <div class="card">
+        <p>
+          Selected technical publications, interviews, conference papers, and industry contributions focused on
+          rotating equipment, turbomachinery, reliability engineering, machinery performance, mechanical seals,
+          data analytics, and machine-learning applications in industrial assets.
+        </p>
+
+        <div class="publication-grid">
+          <a class="publication-card" href="https://circle.ubc.ca/handle/2429/22432">
+            <span class="publication-year">2005</span>
+            <h3>BioDiesel — Production Through Transesterification Reaction</h3>
+            <p class="publication-source">University of British Columbia</p>
+            <p class="publication-note">
+              Academic engineering publication related to biodiesel production and transesterification reaction processes.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_ba94d8dd91d6436986a67dabc9c12c47.pdf">
+            <span class="publication-year">2009</span>
+            <h3>Reliability Centered Maintenance</h3>
+            <p class="publication-source">Uptime Magazine</p>
+            <p class="publication-note">
+              Practical reliability-centered maintenance discussion focused on plant reliability and maintenance strategy.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_6887e57c88134ba4be4815eedb225696.pdf">
+            <span class="publication-year">2012</span>
+            <h3>Improve Performance Monitoring of Your Turbo-Machinery</h3>
+            <p class="publication-source">Hydrocarbon Processing</p>
+            <p class="publication-note">
+              Turbomachinery performance monitoring article focused on steam turbine efficiency, plant data, and performance indicators.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_3f3d48fd5d214933955d2f541dd99095.pdf">
+            <span class="publication-year">2013 / 2014</span>
+            <h3>Laplace Test as a Pre-Qualification for Weibull — Mechanical Seal Analysis</h3>
+            <p class="publication-source">Uptime Magazine</p>
+            <p class="publication-note">
+              Mechanical seal reliability article applying statistical methods to evaluate failure trends and reliability behavior.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://www.plantservices.com/equipment/fluid-handling/article/11313026/real-time-machinery-evaluation-leads-to-plant-profitability">
+            <span class="publication-year">2014</span>
+            <h3>Real-Time Machinery Evaluation Leads to Plant Profitability</h3>
+            <p class="publication-source">Plant Services Journal</p>
+            <p class="publication-note">
+              Rotating machinery evaluation article focused on practical machinery performance assessment and plant profitability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_87108e99072f47ddab5c076a62ff74a5.pdf">
+            <span class="publication-year">2014</span>
+            <h3>Raise Plant Profitability Through Continuous Performance Evaluation</h3>
+            <p class="publication-source">Hydrocarbon Processing</p>
+            <p class="publication-note">
+              Article on continuous machinery and process performance evaluation to support reliability and profitability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_bac32928cc8e41ecb0ceee5c0f899512.pdf">
+            <span class="publication-year">2016</span>
+            <h3>Viscosity Effects on Centrifugal Pump Performance</h3>
+            <p class="publication-source">Uptime Magazine</p>
+            <p class="publication-note">
+              Pump performance article discussing the effect of viscosity on centrifugal pump operation and reliability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_5e437c951f1242ab9a72bbdfac765448.pdf">
+            <span class="publication-year">2017</span>
+            <h3>API Plan 53B: What Can Plant Operators Do to Help?</h3>
+            <p class="publication-source">Uptime Magazine</p>
+            <p class="publication-note">
+              Mechanical seal support system article focused on API Plan 53B operation, maintenance, and plant reliability practices.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_7f5c5deb74b44b72bf6c1ea820151bdb.pdf">
+            <span class="publication-year">2018</span>
+            <h3>Utilizing Process Dynamics to Increase Machine Reliability</h3>
+            <p class="publication-source">Uptime Magazine</p>
+            <p class="publication-note">
+              Reliability article connecting process conditions, operating dynamics, and rotating equipment performance.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_887aa6cf61194effb4ca52aa07f55d1e.pdf">
+            <span class="publication-year">2025</span>
+            <h3>IBM AI Credential</h3>
+            <p class="publication-source">IBM Artificial Intelligence / Machine Learning Credential</p>
+            <p class="publication-note">
+              Credential supporting applied artificial intelligence, machine learning, and analytics capability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://vdn.woodplc.com/knowledge-center/technical-articles/case-study-of-solutions-to-screw-compressor-package-vibrations">
+            <span class="publication-year">2019</span>
+            <h3>Case Study of Solutions to Screw Compressor Package Vibrations</h3>
+            <p class="publication-source">Gas Machinery Conference / Wood VDN</p>
+            <p class="publication-note">
+              Conference work focused on screw compressor package vibration troubleshooting and practical machinery problem solving.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://reliabilityweb.com/data-analytics-machine-learning-and-root-cause-analysis-a-practical-path-to-continuous-improvement">
+            <span class="publication-year">2023</span>
+            <h3>Data Analytics, Machine Learning and Root Cause Analysis</h3>
+            <p class="publication-source">Reliabilityweb / Uptime Magazine</p>
+            <p class="publication-note">
+              Article on applying data analytics and machine learning to root cause analysis, continuous improvement, and plant reliability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_9adca796af4c4f2b865555e51837f950.pdf">
+            <span class="publication-year">2023</span>
+            <h3>Improving Pump Systems — Interview with Umeet Bhachu</h3>
+            <p class="publication-source">Pump Engineer Magazine</p>
+            <p class="publication-note">
+              Industry interview on pump selection, API 610 expectations, preservation, installation, automation, and reliability.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://oaktrust.library.tamu.edu/items/5ab86bca-5b0b-4343-b9eb-f3792acda782">
+            <span class="publication-year">2023</span>
+            <h3>Natural Gas Condensate Transfer Pump Mechanical Seal MTBR Improvement</h3>
+            <p class="publication-source">Turbomachinery Symposium / Texas A&amp;M OakTrust</p>
+            <p class="publication-note">
+              Technical paper on condensate pump mechanical seal mean time between repair improvement through design and material enhancements.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://87295463-dfcb-4092-8926-9f2e4fcd1f3d.filesusr.com/ugd/43fe2e_d8df0aa2e8b74fdb96bc4e4fca60a471.pdf">
+            <span class="publication-year">2025</span>
+            <h3>AI and Machine Learning — Practical Applications</h3>
+            <p class="publication-source">Baker Hughes Cordant Conference, Calgary</p>
+            <p class="publication-note">
+              Industry presentation focused on artificial intelligence, machine learning, and practical applications in reliability and operations.
+            </p>
+          </a>
+
+          <a class="publication-card" href="https://www.hydrocarbonengineering.com/magazine/hydrocarbon-engineering/back-issues/">
+            <span class="publication-year">2025</span>
+            <h3>AI: Smarter Operations for Reliability and Performance</h3>
+            <p class="publication-source">Hydrocarbon Engineering, October 2025</p>
+            <p class="publication-note">
+              Industry article focused on AI, smarter operations, reliability, performance, and industrial asset optimization.
+            </p>
+          </a>
+          
+          <a class="publication-card" href="https://reliabilityweb.com/mechanical-seals-small-components-major-consequences-for-pump-reliability-and-process-safety">
+            <span class="publication-year">2026</span>
+            <h3>Mechanical Seals: Small Components, Major Consequences for Pump Reliability and Process Safety</h3>
+            <p class="publication-source">Reliabilityweb</p>
+            <p class="publication-note">
+              Article focused on mechanical seal reliability, pump performance, process safety, and the operational consequences of seal failures.
+            </p>
+          </a>
+          
+          <!-- ADD NEW PUBLICATIONS ABOVE THIS LINE - KEEP DATE ORDER OLDEST TO NEWEST -->
+          
+          <a class="publication-card" href="https://www.amazon.ca/Servitization-Physical-Management-Michael-Provost/dp/0768094860">
+            <span class="publication-year">Book Chapter</span>
+            <h3>Accepted Chapter Contribution — Servitization &amp; Asset Management</h3>
+            <p class="publication-source">Book Chapter Contribution</p>
+            <p class="publication-note">
+              Book chapter contribution related to physical asset management and servitization.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="profiles">
+      <div class="section-kicker">Official Profiles</div>
+      <h2 class="section-title">Professional Links</h2>
+
+      <div class="card">
+        <div class="profile-list">
+          <a class="profile-link" href="https://scholar.google.ca/citations?user=FRs9WRIAAAAJ">Google Scholar</a>
+          <a class="profile-link" href="https://orcid.org/0009-0008-2717-850X">ORCID</a>
+          <a class="profile-link" href="https://github.com/umeetbhachu">GitHub</a>
+          <a class="profile-link" href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">LinkedIn</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="footer">© 2026 Umeet Bhachu, P.Eng., PMP, CMRP · Rotating Equipment Engineer · Turbomachinery Specialist</footer>
+
+  <footer class="footer">
+    © 2026 Umeet Bhachu, P.Eng., PMP, CMRP · Rotating Equipment Engineer · Turbomachinery Specialist
+  </footer>
 </body>
 </html>
