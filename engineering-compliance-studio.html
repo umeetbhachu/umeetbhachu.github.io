@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Engineering Compliance Studio – Local PDF RAG & Engineering Compliance Software</title>
+
+  <meta name="description"
+        content="Engineering Compliance Studio is a free Windows beta engineering application for local PDF RAG, technical bulletin screening, evidence retrieval, engineering action cards and compliance register generation." />
+
+  <link rel="canonical"
+        href="https://umeetbhachu.github.io/engineering-compliance-studio.html" />
+
+  <meta property="og:title"
+        content="Engineering Compliance Studio v0.6.6 RC7 – Free Beta" />
+
+  <meta property="og:description"
+        content="Local AI engineering software for evidence-controlled technical PDF analysis, engineering bulletin screening, action cards and compliance register generation." />
+
+  <meta property="og:type" content="product" />
+
+  <meta property="og:url"
+        content="https://umeetbhachu.github.io/engineering-compliance-studio.html" />
+
+  <meta property="og:image"
+        content="https://umeetbhachu.github.io/ecs-setup.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Engineering Compliance Studio",
+    "softwareVersion": "0.6.6 RC7",
+    "applicationCategory": "EngineeringApplication",
+    "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+    "description": "Engineering software for local PDF RAG, technical-document evidence retrieval, engineering bulletin screening, action-card generation and compliance-register development.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "CAD",
+      "url": "https://payhip.com/b/foRi9"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Umeet Bhachu",
+      "url": "https://umeetbhachu.github.io/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --accent: #123c69;
+      --accent-2: #0f6b78;
+      --accent-soft: #e8eef6;
+      --border: #d9e2ec;
+      --success: #147d54;
+      --warning-bg: #fff8e6;
+      --warning-border: #ecd89a;
+      --dark: #07110d;
+      --green: #00ff88;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #edf3f9 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 68px 24px 58px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 44px;
+      line-height: 1.1;
+      margin: 0 0 16px;
+      color: #102a43;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .hero-text {
+      font-size: 17px;
+      margin-bottom: 24px;
+      max-width: 700px;
+    }
+
+    .price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 14px 0 22px;
+    }
+
+    .price {
+      font-size: 30px;
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      opacity: 0.93;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: var(--dark);
+      border: 1px solid #20352b;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 16px 40px rgba(16, 42, 67, 0.10);
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid #29483a;
+      background: #ffffff;
+    }
+
+    .hero-caption {
+      color: #b8d8c7;
+      font-size: 13px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 46px 24px 72px;
+    }
+
+    section {
+      margin-bottom: 48px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .section-title {
+      font-size: 29px;
+      margin: 0 0 18px;
+      color: #102a43;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(16, 42, 67, 0.055);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 8px;
+      color: #102a43;
+      font-size: 18px;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .workflow {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .workflow .mini-card::before {
+      counter-increment: step;
+      content: counter(step);
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+
+    .notice strong {
+      color: #5a4300;
+    }
+
+    .requirements {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .contact-line {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .code-line {
+      background: #101820;
+      color: #d6f7e5;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .dark-card {
+      background: var(--dark);
+      color: #d9e6df;
+      border: 1px solid #244235;
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .dark-card h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      background: #fff;
+      text-align: center;
+      padding: 28px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .requirements {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="nav">
+      <div class="brand">Engineering Compliance Studio</div>
+
+      <nav class="nav-links" aria-label="Engineering Compliance Studio navigation">
+        <a href="#features">Features</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#requirements">Requirements</a>
+        <a href="#developer">Developer</a>
+        <a href="https://umeetbhachu.github.io/">Professional Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+
+      <div>
+        <div class="eyebrow">
+          Evidence-Controlled Engineering Intelligence
+        </div>
+
+        <h1>Engineering Compliance Studio v0.6.6 RC7</h1>
+
+        <p class="subtitle">
+          Local PDF RAG • Engineering Bulletin Screening • Human-Verified Compliance
+        </p>
+
+        <p class="hero-text">
+          A Windows engineering application for reviewing technical PDF collections,
+          retrieving source-grounded engineering evidence, generating structured
+          action information and building compliance registers using locally hosted AI.
+          The current beta has been developed and tested primarily using GE LM6000
+          technical and service bulletin examples.
+        </p>
+
+        <div class="price-line">
+          <div class="price">FREE BETA</div>
+          <div class="price-note">for evaluation, testing and feedback</div>
+        </div>
+
+        <div class="button-row">
+          <a class="button"
+             href="https://payhip.com/b/foRi9">
+             Download Free Beta via Payhip
+          </a>
+
+          <a class="button secondary"
+             href="#features">
+             View Capabilities
+          </a>
+        </div>
+
+        <p class="price-note" style="margin-top:14px;">
+          Windows 10 / Windows 11, 64-bit. Local AI model through Ollama.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <img src="ecs-setup.png"
+             alt="Engineering Compliance Studio setup and analysis screen">
+
+        <div class="hero-caption">
+          Local engineering-document analysis, asset applicability inputs
+          and evidence-controlled PDF processing.
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <main>
+
+    <section id="features">
+      <div class="section-kicker">Engineering capability</div>
+
+      <h2 class="section-title">
+        Built around evidence, applicability and human verification
+      </h2>
+
+      <div class="grid">
+
+        <div class="mini-card">
+          <h3>Local PDF RAG</h3>
+          <p>
+            Search engineering PDF collections using locally hosted AI while
+            retaining source-document context and page references.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Applicability Screening</h3>
+          <p>
+            Compare equipment model, serial-number and configuration information
+            against technical-bulletin applicability evidence.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Compliance Register</h3>
+          <p>
+            Generate structured engineering action information and Excel-based
+            compliance registers for further review and follow-up.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="section-kicker">Evidence control</div>
+
+      <h2 class="section-title">
+        Designed to keep the source document central
+      </h2>
+
+      <div class="requirements">
+
+        <div class="card">
+          <h3 style="margin-top:0;color:#102a43;">
+            Source-grounded retrieval
+          </h3>
+
+          <p>
+            Engineering Compliance Studio is designed to retrieve supporting
+            evidence from user-supplied technical documents and present source
+            quotation and page-reference information for human review.
+          </p>
+
+          <p>
+            The software is intended to support engineering review rather than
+            replace the original bulletin, manual, drawing or governing document.
+          </p>
+        </div>
+
+        <div class="dark-card">
+          <h3>Human-Verified Compliance</h3>
+
+          <p>
+            Where available evidence is insufficient for a reliable applicability
+            determination, the workflow intentionally supports an
+            <strong>Engineering review required</strong> outcome.
+          </p>
+
+          <p>
+            Final engineering, maintenance, compliance, operational and safety
+            decisions remain with the qualified user.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="workflow">
+      <div class="section-kicker">Practical workflow</div>
+
+      <h2 class="section-title">
+        Collect → analyze → verify → act
+      </h2>
+
+      <div class="workflow">
+
+        <div class="mini-card">
+          <h3>Load Documents</h3>
+          <p>
+            Select a folder containing technical PDFs that the user is authorized to access and process.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Analyze</h3>
+          <p>
+            Build the local document index and extract engineering evidence,
+            bulletin information and action-related content.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Verify</h3>
+          <p>
+            Review quotations, page references and applicability evidence
+            against the original source document.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <h3>Register</h3>
+          <p>
+            Export structured engineering actions and compliance information
+            for follow-up and lifecycle tracking.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="requirements">
+      <div class="section-kicker">Windows beta</div>
+
+      <h2 class="section-title">
+        Download and system requirements
+      </h2>
+
+      <div class="requirements">
+
+        <div class="card">
+
+          <h3 style="margin-top:0;color:#102a43;">
+            Requirements
+          </h3>
+
+          <p>
+            <strong>Platform:</strong>
+            Windows 10 / Windows 11, 64-bit.
+          </p>
+
+          <p>
+            <strong>Local AI runtime:</strong>
+            Ollama.
+          </p>
+
+          <p>
+            Recommended beta model:
+          </p>
+
+          <div class="code-line">
+            ollama pull qwen2.5:7b-instruct
+          </div>
+
+          <p>
+            The recommended model requires approximately 5 GB of local storage.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3 style="margin-top:0;color:#102a43;">
+            Free Beta Download
+          </h3>
+
+          <p>
+            The beta release is currently available at no cost for engineering
+            evaluation, testing and feedback.
+          </p>
+
+          <p>
+            The distribution includes the Windows release package, source-code
+            package and SHA-256 file-integrity information.
+          </p>
+
+          <a class="button"
+             href="https://payhip.com/b/foRi9">
+             Download Free Beta
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="developer">
+      <div class="section-kicker">Independent developer</div>
+
+      <h2 class="section-title">
+        Engineering and software development
+      </h2>
+
+      <div class="card">
+
+        <h3 style="margin-top:0;color:#102a43;">
+          Umeet Bhachu, P.Eng., PMP, CMRP
+        </h3>
+
+        <p>
+          Rotating Equipment &amp; Turbomachinery Specialist and independent
+          engineering-software developer with interests in machinery reliability,
+          engineering analytics, machine learning and practical industrial AI.
+        </p>
+
+        <div class="contact-line">
+          <a href="mailto:planck12@gmail.com">
+            planck12@gmail.com
+          </a>
+        </div>
+
+        <div class="contact-line">
+          <a href="https://www.linkedin.com/in/umeet-bhachu-p-eng-pmp-cmrp-7849816">
+            LinkedIn profile
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="notice">
+
+        <strong>Independent development and OEM notice.</strong>
+
+        Engineering Compliance Studio is independently developed by Umeet Bhachu
+        and is not affiliated with, sponsored by, endorsed by or supported by GE,
+        GE Vernova, any OEM, employer, plant operator or other organization.
+
+        No GE or GE Vernova technical bulletins, manuals or other proprietary
+        documents are included with the software.
+
+        Users are responsible for ensuring they have appropriate rights,
+        authorization and lawful access to any documents they choose to process.
+
+        GE, GE Vernova, LM6000 and other company or product names may be trademarks
+        or trade names of their respective owners and are referenced only to
+        identify document types or equipment applicability.
+      </div>
+    </section>
+
+
+    <section>
+      <div class="notice">
+
+        <strong>Engineering beta notice.</strong>
+
+        Engineering Compliance Studio is a beta engineering screening,
+        evidence-retrieval and decision-support tool.
+
+        All extracted information, AI-generated responses, applicability
+        assessments, compliance results and generated actions must be independently
+        verified against the original source document before being used for
+        engineering, maintenance, compliance, operational or safety decisions.
+
+        The applicability workflow has currently been manually evaluated primarily
+        using LM6000 technical and service bulletin examples. Other turbine or
+        engineering documents may be processed for evidence retrieval, but their
+        applicability results have not been similarly validated.
+
+        The software does not replace qualified engineering judgement, OEM
+        requirements, governing procedures or the original technical documentation.
+      </div>
+    </section>
+
+
+    <section>
+      <div class="card">
+
+        <div class="section-kicker">
+          Local processing
+        </div>
+
+        <h2 class="section-title" style="margin-bottom:10px;">
+          User-supplied documents remain central to the workflow
+        </h2>
+
+        <p>
+          Engineering Compliance Studio uses a locally hosted AI model through
+          Ollama. Document analysis is performed locally on the user's computer,
+          and the application is not designed to send supplied PDF documents to
+          a cloud AI service.
+        </p>
+
+        <p>
+          Users supply their own authorized technical documents. No OEM technical
+          documents are distributed with the application.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="card">
+
+        <div class="section-kicker">
+          Open-source licensing
+        </div>
+
+        <h2 class="section-title" style="margin-bottom:10px;">
+          Source code available with the beta
+        </h2>
+
+        <p>
+          Engineering Compliance Studio v0.6.6 RC7 is distributed under the
+          GNU Affero General Public License v3 (AGPL-3.0).
+        </p>
+
+        <p>
+          The application uses open-source software components including PyMuPDF.
+          Users should review the licenses included with the source-code distribution
+          for applicable terms and obligations.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section>
+      <div class="card" style="text-align:center;">
+
+        <div class="section-kicker">
+          Beta feedback
+        </div>
+
+        <h2 class="section-title" style="margin-bottom:10px;">
+          Help improve future releases
+        </h2>
+
+        <p style="max-width:760px;margin:0 auto 18px;color:var(--muted);">
+          Feedback on retrieval quality, applicability results, PDF-format handling,
+          engineering workflow, bugs and feature ideas is welcome.
+          When reporting an issue, include the document or bulletin reference,
+          page number where possible and a short description of the result produced.
+        </p>
+
+        <div class="button-row" style="justify-content:center;">
+
+          <a class="button"
+             href="mailto:planck12@gmail.com">
+             Email Feedback
+          </a>
+
+          <a class="button secondary"
+             href="https://umeetbhachu.github.io/">
+             Back to Umeet Bhachu Professional Profile
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    Engineering Compliance Studio v0.6.6 RC7 · Local PDF RAG · Engineering Compliance · Free Beta
+  </footer>
+
+</body>
+</html>
