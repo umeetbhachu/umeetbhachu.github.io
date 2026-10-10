@@ -508,7 +508,71 @@
 
       </div>
     </section>
+<section>
+  <div class="section-kicker">What it does</div>
 
+  <h2 class="section-title">
+    From service bulletin PDFs to an evidence-backed engineering action register
+  </h2>
+
+  <div class="card">
+
+    <p style="font-size:17px;margin-top:0;">
+      Reliability and maintenance teams may need to review large numbers of technical
+      and service bulletins and determine which actions apply to which machines.
+      Engineering Compliance Studio is designed to help structure that process while
+      keeping the original source document central to every decision.
+    </p>
+
+    <ul style="padding-left:22px;margin-bottom:0;">
+
+      <li style="margin-bottom:12px;">
+        <strong>Reads user-supplied bulletin PDFs</strong> and extracts key engineering
+        information such as affected equipment, model and serial-number criteria,
+        required actions, intervals, parts, manpower and closure requirements.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Retains supporting evidence</strong> by associating extracted information
+        with source quotation and page-reference information so the user can verify the
+        result against the original document.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Builds structured action cards</strong> that summarize the engineering
+        issue, applicability information and required follow-up for each bulletin.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Screens equipment applicability</strong> using entered model,
+        serial-number and configuration information. Results can include
+        <em>Applicable</em>, <em>Applicable – configuration review required</em>,
+        <em>Not applicable</em> or <em>Engineering review required</em>.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Routes uncertainty to engineering review.</strong> When available
+        evidence is insufficient for a reliable determination, the program is designed
+        to return <em>Engineering review required</em> rather than force an applicability
+        conclusion.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Exports an Excel engineering compliance register</strong> containing
+        structured action information, equipment applicability, supporting evidence,
+        document references and exceptions for follow-up.
+      </li>
+
+      <li>
+        <strong>Supports Ask-the-PDF engineering questions</strong> using local RAG.
+        Users can ask questions in plain language and review answers together with the
+        supporting source-document context.
+      </li>
+
+    </ul>
+
+  </div>
+</section>
 
     <section>
       <div class="section-kicker">Evidence control</div>
@@ -628,13 +692,16 @@
             Recommended beta model:
           </p>
 
-          <div class="code-line">
-            ollama pull qwen2.5:7b-instruct
-          </div>
+        <div class="code-line">
+  ollama pull qwen2.5:7b-instruct<br>
+  ollama pull nomic-embed-text
+</div>
 
           <p>
-            The recommended model requires approximately 5 GB of local storage.
-          </p>
+  <strong>qwen2.5:7b-instruct</strong> is the tested local language model for engineering extraction and analysis.
+  <strong>nomic-embed-text</strong> is used for document retrieval and the Ask-the-PDF workflow.
+  Storage requirements depend on the installed Ollama models.
+</p>
 
         </div>
 
@@ -744,7 +811,50 @@
         requirements, governing procedures or the original technical documentation.
       </div>
     </section>
+<section>
+  <div class="section-kicker">Important limits</div>
 
+  <h2 class="section-title">
+    Designed to support engineering review, not replace it
+  </h2>
+
+  <div class="card">
+
+    <ul style="padding-left:22px;margin-bottom:0;">
+
+      <li style="margin-bottom:12px;">
+        <strong>Every result must be verified against the original source document.</strong>
+        A screening result should not be treated as an independent engineering conclusion.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>“Engineering review required” is an intentional safe outcome.</strong>
+        It may appear frequently where bulletin wording, configuration information or
+        applicability evidence is incomplete or ambiguous.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>PDF quality matters.</strong>
+        Scanned, image-based, unusually formatted or complex documents may not be
+        extracted completely or consistently.
+      </li>
+
+      <li style="margin-bottom:12px;">
+        <strong>Applicability validation is currently focused on LM6000 bulletin examples.</strong>
+        Other turbine families and engineering documents may be processed for evidence
+        retrieval, but their applicability workflow has not been similarly validated.
+      </li>
+
+      <li>
+        <strong>AI-generated wording may vary.</strong>
+        Source evidence, page references and the original technical document should
+        remain the basis for engineering decisions.
+      </li>
+
+    </ul>
+
+  </div>
+</section>
 
     <section>
       <div class="card">
@@ -763,7 +873,12 @@
           and the application is not designed to send supplied PDF documents to
           a cloud AI service.
         </p>
-
+<p>
+  <strong>How AI is used:</strong> The local language model is used to identify
+  and organize candidate engineering evidence from the supplied documents.
+  Applicability logic and engineering screening rules are implemented separately
+  in the application, with uncertain cases routed to engineering review.
+</p>
         <p>
           Users supply their own authorized technical documents. No OEM technical
           documents are distributed with the application.
@@ -789,11 +904,13 @@
           GNU Affero General Public License v3 (AGPL-3.0).
         </p>
 
-        <p>
-          The application uses open-source software components including PyMuPDF.
-          Users should review the licenses included with the source-code distribution
-          for applicable terms and obligations.
-        </p>
+    <p>
+  The source-code distribution includes the applicable licence and notice files
+  for the application and its open-source components, including PyMuPDF.
+  Users who modify or redistribute the software should review the included
+  <strong>LICENSE</strong> and <strong>NOTICE.txt</strong> files and the licence
+  terms of the individual open-source components.
+</p>
 
       </div>
     </section>
